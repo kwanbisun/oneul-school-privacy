@@ -5,7 +5,7 @@ on:
     - cron: '17 21 * * 0'
   push:
     branches: [main]
-    paths: [index.html, holidays.json, scripts/**, .github/workflows/holidays.yml]
+    paths: [index.html, app.html, holidays.json, scripts/**, .github/workflows/holidays.yml]
 permissions:
   contents: read
 concurrency:
@@ -39,7 +39,7 @@ jobs:
       - name: Stage only public website files
         run: |
           mkdir public-site
-          cp index.html holidays.json .nojekyll public-site/
+          cp index.html app.html holidays.json .nojekyll public-site/
       - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
           path: public-site
